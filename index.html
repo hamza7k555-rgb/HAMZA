@@ -39,7 +39,7 @@
             position: relative;
         }
         
-        /* تأثير المصفوفة المتقدمة */
+        /* تأثير المصفوفة المحسن */
         .matrix-container {
             position: fixed;
             top: 0;
@@ -48,22 +48,63 @@
             height: 100%;
             z-index: -2;
             overflow: hidden;
-            opacity: 0.08;
+            opacity: 0.25; /* زيادة الشفافية */
+            pointer-events: none;
         }
         
         .matrix-column {
             position: absolute;
-            top: -100%;
+            top: -150%;
             color: var(--accent-green);
-            font-family: 'Courier New', monospace;
-            font-size: 18px;
-            text-shadow: 0 0 8px var(--accent-green);
+            font-family: 'Courier New', monospace, 'Cairo';
+            font-size: 22px;
+            font-weight: 900;
             white-space: nowrap;
+            text-shadow: 
+                0 0 5px var(--accent-green),
+                0 0 10px var(--accent-green),
+                0 0 20px var(--accent-green);
+            line-height: 1.2;
             animation: matrix-rain linear infinite;
+            filter: brightness(1.5);
         }
         
         @keyframes matrix-rain {
-            to { transform: translateY(100vh); }
+            0% { 
+                transform: translateY(-100%) translateX(0);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+        }
+        
+        /* أحرف المصفوفة الفردية */
+        .matrix-char {
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 0 1px;
+        }
+        
+        .matrix-char.bright {
+            color: white;
+            text-shadow: 
+                0 0 10px white,
+                0 0 20px var(--accent-green),
+                0 0 30px var(--accent-green);
+            font-weight: 900;
+        }
+        
+        .matrix-char.fade {
+            color: rgba(0, 255, 65, 0.3);
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
         }
         
         /* شريط التحميل المطور */
@@ -701,6 +742,15 @@
             text-shadow: 0 0 10px var(--accent-green);
         }
         
+        /* ازرار التواصل في الفوتر */
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        
         /* تأثيرات للشاشات الصغيرة */
         @media (max-width: 1200px) {
             .glitch-text {
@@ -741,6 +791,11 @@
             .contact-btn {
                 width: 90%;
                 max-width: 400px;
+            }
+            
+            .footer-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
         
@@ -854,7 +909,7 @@
     <!-- شريط التحميل -->
     <div class="loading-bar"></div>
     
-    <!-- تأثير المصفوفة -->
+    <!-- تأثير المصفوفة المحسن -->
     <div class="matrix-container" id="matrixContainer"></div>
     
     <!-- تأثيرات عائمة -->
@@ -886,23 +941,8 @@
         
         <div class="typewriter-container">
             <div class="typewriter" id="typewriter">
-                // مرحباً بك في عالم الأمن السيبراني والأخلاقي. أنا حمزه، هاكر أخلاقي ومتخصص في أمن المعلومات.
-                // استكشف عالم الحماية الرقمية، اختبار الاختراق، وتحليل الثغرات الأمنية.
-                // SYSTEM: SECURE | CONNECTION: ENCRYPTED
+                
             </div>
-        </div>
-        
-        <!-- أزرار التواصل في الأسفل -->
-        <div class="bottom-buttons">
-            <a href="https://t.me/jt_r3r" class="contact-btn btn-telegram" target="_blank" id="telegramBtn">
-                <i class="fab fa-telegram-plane btn-icon"></i>
-                <span>التواصل مع حمزه</span>
-            </a>
-            
-            <a href="https://t.me/Hacked_bbot" class="contact-btn btn-bot" target="_blank" id="botBtn">
-                <i class="fas fa-robot btn-icon"></i>
-                <span>فتح بوت الهاكر</span>
-            </a>
         </div>
     </section>
     
@@ -1046,6 +1086,19 @@
             </div>
         </div>
         
+        <!-- أزرار التواصل في الفوتر -->
+        <div class="footer-buttons">
+            <a href="https://t.me/jt_r3r" class="contact-btn btn-telegram" target="_blank" id="telegramBtn">
+                <i class="fab fa-telegram-plane btn-icon"></i>
+                <span>التواصل مع حمزه</span>
+            </a>
+            
+            <a href="https://t.me/Hacked_bbot" class="contact-btn btn-bot" target="_blank" id="botBtn">
+                <i class="fas fa-robot btn-icon"></i>
+                <span>فتح بوت الهاكر</span>
+            </a>
+        </div>
+        
         <div class="footer-copyright">
             جميع الحقوق محفوظة &copy; <span id="currentYear"></span> لـ <span>الهاكر حمزه</span>
             <div style="font-size: 1rem; margin-top: 15px; color: #666;">
@@ -1055,30 +1108,129 @@
     </footer>
     
     <script>
-        // إنشاء تأثير المصفوفة
+        // إنشاء تأثير المصفوفة المحسن
         function createMatrixEffect() {
             const container = document.getElementById('matrixContainer');
-            const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
+            const chars = "01"; // استخدام 0 و 1 فقط
+            const columnCount = 80; // زيادة عدد الأعمدة
             
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < columnCount; i++) {
                 const column = document.createElement('div');
                 column.className = 'matrix-column';
-                column.style.left = `${Math.random() * 100}vw`;
                 
-                // إنشاء نص عشوائي للعمود
-                let columnText = '';
-                const length = Math.floor(Math.random() * 30) + 20;
-                for (let j = 0; j < length; j++) {
-                    columnText += chars[Math.floor(Math.random() * chars.length)] + '<br>';
+                // توزيع عشوائي للأعمدة
+                column.style.left = `${(i / columnCount) * 100}vw`;
+                
+                // إنشاء الأحرف لكل عمود
+                const charCount = Math.floor(Math.random() * 30) + 40; // زيادة عدد الأحرف
+                let columnContent = '';
+                
+                for (let j = 0; j < charCount; j++) {
+                    const char = document.createElement('span');
+                    char.className = 'matrix-char';
+                    
+                    // 80% احتمال أن يكون 0 أو 1، 20% احتمال أن يكون حرف أو رمز
+                    if (Math.random() < 0.8) {
+                        char.textContent = Math.random() > 0.5 ? '0' : '1';
+                    } else {
+                        char.textContent = chars[Math.floor(Math.random() * chars.length)];
+                    }
+                    
+                    // تأثير تلاشي تدريجي للأحرف القديمة
+                    if (j < charCount * 0.3) {
+                        char.classList.add('fade');
+                    } else if (j > charCount * 0.7 && Math.random() > 0.7) {
+                        char.classList.add('bright');
+                    }
+                    
+                    // إضافة تأثير عشوائي
+                    if (Math.random() > 0.9) {
+                        char.style.color = '#ffffff';
+                        char.style.textShadow = '0 0 15px #ffffff, 0 0 30px #00ff41';
+                    }
+                    
+                    column.appendChild(char);
                 }
                 
-                column.innerHTML = columnText;
-                column.style.animationDuration = `${Math.random() * 10 + 10}s`;
-                column.style.animationDelay = `${Math.random() * 5}s`;
-                column.style.opacity = Math.random() * 0.6 + 0.2;
-                column.style.fontSize = `${Math.random() * 8 + 14}px`;
+                // إعدادات الحركة
+                const duration = Math.random() * 15 + 10; // سرعات مختلفة
+                const delay = Math.random() * 5;
+                
+                column.style.animationDuration = `${duration}s`;
+                column.style.animationDelay = `${delay}s`;
+                column.style.fontSize = `${Math.random() * 6 + 18}px`; // حجم خط متغير
+                
+                // شدة التأثير
+                column.style.opacity = Math.random() * 0.4 + 0.6; // زيادة الشفافية
                 
                 container.appendChild(column);
+                
+                // تأثير تحديث الأحرف بشكل دوري
+                setInterval(() => {
+                    const charsInColumn = column.querySelectorAll('.matrix-char');
+                    charsInColumn.forEach((char, index) => {
+                        // تحريك تأثير التلاشي
+                        if (index < charsInColumn.length * 0.3) {
+                            char.classList.add('fade');
+                            char.classList.remove('bright');
+                        } else if (index > charsInColumn.length * 0.7 && Math.random() > 0.5) {
+                            char.classList.remove('fade');
+                            char.classList.add('bright');
+                        } else {
+                            char.classList.remove('fade', 'bright');
+                        }
+                        
+                        // تغيير الحرف أحياناً
+                        if (Math.random() > 0.95) {
+                            if (Math.random() < 0.8) {
+                                char.textContent = Math.random() > 0.5 ? '0' : '1';
+                            } else {
+                                char.textContent = chars[Math.floor(Math.random() * chars.length)];
+                            }
+                        }
+                        
+                        // تأثير وميض عشوائي
+                        if (Math.random() > 0.98) {
+                            char.style.color = '#ffffff';
+                            char.style.textShadow = '0 0 15px #ffffff, 0 0 30px #00ff41';
+                            setTimeout(() => {
+                                char.style.color = '';
+                                char.style.textShadow = '';
+                            }, 200);
+                        }
+                    });
+                }, 100);
+            }
+            
+            // إضافة أعمدة إضافية تتحرك بشكل جانبي
+            for (let i = 0; i < 15; i++) {
+                const diagonalColumn = document.createElement('div');
+                diagonalColumn.className = 'matrix-column';
+                diagonalColumn.style.left = `${Math.random() * 100}vw`;
+                
+                // حركة مائلة
+                const xMovement = (Math.random() - 0.5) * 100;
+                diagonalColumn.style.animation = `matrix-rain ${Math.random() * 20 + 15}s linear infinite`;
+                
+                // إنشاء محتوى العمود
+                const diagonalCharCount = Math.floor(Math.random() * 25) + 20;
+                for (let j = 0; j < diagonalCharCount; j++) {
+                    const char = document.createElement('span');
+                    char.className = 'matrix-char';
+                    char.textContent = Math.random() > 0.7 ? '0' : '1';
+                    char.style.display = 'block';
+                    
+                    if (j < diagonalCharCount * 0.4) {
+                        char.classList.add('fade');
+                    }
+                    
+                    diagonalColumn.appendChild(char);
+                }
+                
+                diagonalColumn.style.fontSize = `${Math.random() * 5 + 16}px`;
+                diagonalColumn.style.opacity = Math.random() * 0.3 + 0.4;
+                
+                container.appendChild(diagonalColumn);
             }
         }
         
@@ -1101,44 +1253,26 @@
             }
         }
         
-        // تأثير الكتابة الآلية
+        // تأثير الكتابة الآلية بدون مسح
         function initTypewriter() {
             const typewriter = document.getElementById('typewriter');
-            const texts = [
-                "// مرحباً بك في عالم الأمن السيبراني والأخلاقي. أنا حمزه، هاكر أخلاقي ومتخصص في أمن المعلومات.",
-                "// استكشف عالم الحماية الرقمية، اختبار الاختراق، وتحليل الثغرات الأمنية.",
-                "// SYSTEM: SECURE | CONNECTION: ENCRYPTED | PROTECTION: ACTIVE",
-                "// للتواصل معي أو الوصول إلى أدوات الأمن السيبراني، استخدم الأزرار الموجودة أدناه."
-            ];
+            const fullText = `// مرحباً بك في عالم الأمن السيبراني والأخلاقي. أنا حمزه، هاكر أخلاقي ومتخصص في أمن المعلومات.
+// استكشف عالم الحماية الرقمية، اختبار الاختراق، وتحليل الثغرات الأمنية.
+// SYSTEM: SECURE | CONNECTION: ENCRYPTED | PROTECTION: ACTIVE
+// للتواصل معي أو الوصول إلى أدوات الأمن السيبراني، استخدم الأزرار الموجودة في أسفل الموقع.`;
             
-            let textIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
+            let index = 0;
             
             function type() {
-                const currentText = texts[textIndex];
-                
-                if (isDeleting) {
-                    typewriter.textContent = currentText.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    typewriter.textContent = currentText.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-                
-                if (!isDeleting && charIndex === currentText.length) {
-                    isDeleting = true;
-                    setTimeout(type, 2000);
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    textIndex = (textIndex + 1) % texts.length;
-                    setTimeout(type, 500);
-                } else {
-                    setTimeout(type, isDeleting ? 50 : 100);
+                if (index < fullText.length) {
+                    typewriter.textContent += fullText.charAt(index);
+                    index++;
+                    setTimeout(type, 30); // سرعة الكتابة
                 }
             }
             
-            type();
+            // بدء الكتابة بعد تحميل الصفحة
+            setTimeout(type, 1000);
         }
         
         // إصلاح روابط التيليجرام
@@ -1311,6 +1445,26 @@
                     statusElement.style.opacity = '1';
                 }, 200);
             }, 5000);
+            
+            // إضافة تأثيرات عشوائية للمصفوفة
+            setInterval(() => {
+                const columns = document.querySelectorAll('.matrix-column');
+                if (columns.length > 0) {
+                    const randomColumn = columns[Math.floor(Math.random() * columns.length)];
+                    const chars = randomColumn.querySelectorAll('.matrix-char');
+                    
+                    if (chars.length > 0) {
+                        // جعل بعض الأحرف تلمع بشكل عشوائي
+                        for (let i = 0; i < 5; i++) {
+                            const randomChar = chars[Math.floor(Math.random() * chars.length)];
+                            randomChar.classList.add('bright');
+                            setTimeout(() => {
+                                randomChar.classList.remove('bright');
+                            }, 300);
+                        }
+                    }
+                }
+            }, 1000);
         });
     </script>
 </body>
