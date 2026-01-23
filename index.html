@@ -3,174 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❍❥𝐇𝐀𝐌𝐙𝐀||:❥❍ | الهاكر الأخلاقي</title>
+    <title>❍❥𝐇𝐀𝐌𝐙𝐀||:❥❍ | هاكر أخلاقي محترف 👑🔥</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Changa:wght@400;600;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Changa:wght@400;600;800&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', 'Changa', sans-serif;
         }
         
         :root {
-            --main-bg: #000000;
-            --secondary-bg: #0a0a0a;
-            --accent-green: #00ff41;
-            --accent-cyan: #00ffff;
-            --accent-red: #ff0033;
-            --accent-purple: #9d00ff;
-            --text-color: #f0f0f0;
-            --terminal-color: #0aff0a;
-            --glow-effect: 0 0 15px;
-            --neon-border: 1px solid rgba(0, 255, 65, 0.3);
+            --neon-green: #00ff41;
+            --neon-cyan: #00ffff;
+            --neon-purple: #9d00ff;
+            --neon-red: #ff0033;
+            --neon-yellow: #ffcc00;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #000000;
+            --text-light: #f0f0f0;
+            --matrix-green: #00ff88;
+            --glow-blue: #0088ff;
         }
         
         body {
-            background-color: var(--main-bg);
-            color: var(--text-color);
+            background-color: var(--darker-bg);
+            color: var(--text-light);
+            font-family: 'Rajdhani', sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 20%, rgba(0, 255, 65, 0.07) 0%, transparent 25%),
-                radial-gradient(circle at 85% 75%, rgba(157, 0, 255, 0.07) 0%, transparent 25%),
-                radial-gradient(circle at 50% 50%, rgba(0, 136, 255, 0.05) 0%, transparent 40%);
             position: relative;
         }
         
-        /* تأثير المصفوفة المحسن */
-        .matrix-container {
+        /* خلفية المصفوفة المتساقطة */
+        .matrix-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -2;
-            overflow: hidden;
-            opacity: 0.25; /* زيادة الشفافية */
+            opacity: 0.3;
             pointer-events: none;
         }
         
         .matrix-column {
             position: absolute;
-            top: -150%;
-            color: var(--accent-green);
-            font-family: 'Courier New', monospace, 'Cairo';
-            font-size: 22px;
-            font-weight: 900;
-            white-space: nowrap;
-            text-shadow: 
-                0 0 5px var(--accent-green),
-                0 0 10px var(--accent-green),
-                0 0 20px var(--accent-green);
-            line-height: 1.2;
-            animation: matrix-rain linear infinite;
-            filter: brightness(1.5);
+            top: -50px;
+            color: var(--matrix-green);
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: bold;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            animation: fall linear infinite;
+            text-shadow: 0 0 8px var(--matrix-green);
+            filter: brightness(1.2);
+            line-height: 1.1;
         }
         
-        @keyframes matrix-rain {
-            0% { 
-                transform: translateY(-100%) translateX(0);
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+        
+        /* تأثيرات الجسيمات */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
                 opacity: 0;
             }
-            5% {
-                opacity: 1;
-            }
-            95% {
-                opacity: 1;
-            }
-            100% { 
-                transform: translateY(100vh) translateX(0);
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translate(calc(100vw - 100px), calc(100vh - 100px)) rotate(360deg);
                 opacity: 0;
             }
         }
         
-        /* أحرف المصفوفة الفردية */
-        .matrix-char {
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin: 0 1px;
-        }
-        
-        .matrix-char.bright {
-            color: white;
-            text-shadow: 
-                0 0 10px white,
-                0 0 20px var(--accent-green),
-                0 0 30px var(--accent-green);
-            font-weight: 900;
-        }
-        
-        .matrix-char.fade {
-            color: rgba(0, 255, 65, 0.3);
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
-        }
-        
-        /* شريط التحميل المطور */
-        .loading-bar {
+        /* شريط التحميل المتقدم */
+        .loader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: linear-gradient(90deg, 
-                var(--accent-green) 0%, 
-                var(--accent-cyan) 33%, 
-                var(--accent-purple) 66%, 
-                var(--accent-red) 100%);
+                var(--neon-green), 
+                var(--neon-cyan),
+                var(--neon-purple),
+                var(--neon-red));
             z-index: 9999;
-            transform-origin: 0 50%;
-            animation: loading 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+            animation: load 2s ease-in-out infinite;
+            box-shadow: 0 0 20px var(--neon-green);
         }
         
-        @keyframes loading {
-            0% { transform: scaleX(0); transform-origin: 0 50%; }
-            50% { transform: scaleX(1); transform-origin: 0 50%; }
-            51% { transform-origin: 100% 50%; }
-            100% { transform: scaleX(0); transform-origin: 100% 50%; }
+        @keyframes load {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
         }
         
-        /* الهيدر المحسّن */
-        header {
-            padding: 25px 5%;
+        /* الهيدر المتطور */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 2px solid rgba(0, 255, 65, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--neon-green);
+            z-index: 1000;
+            box-shadow: 0 5px 30px rgba(0, 255, 65, 0.1);
         }
         
-        .logo {
+        .brand {
             display: flex;
             align-items: center;
             gap: 15px;
-            position: relative;
         }
         
-        .logo-text {
-            font-family: 'Orbitron', sans-serif;
+        .brand-icon {
             font-size: 32px;
+            color: var(--neon-green);
+            animation: spin 10s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .brand-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
             font-weight: 900;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-cyan));
+            background: linear-gradient(45deg, var(--neon-green), var(--neon-cyan));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(0, 255, 65, 0.7);
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
             letter-spacing: 2px;
-            position: relative;
         }
         
-        .logo-text::after {
+        .brand-text::after {
             content: '|';
             animation: blink 1s infinite;
-            color: var(--accent-green);
+            color: var(--neon-green);
             margin-right: 5px;
         }
         
@@ -179,433 +176,425 @@
             51%, 100% { opacity: 0; }
         }
         
-        .logo-icon {
-            color: var(--accent-green);
-            font-size: 36px;
-            animation: pulse 2s infinite;
-            text-shadow: 0 0 15px var(--accent-green);
-            filter: drop-shadow(0 0 8px var(--accent-green));
-        }
-        
-        @keyframes pulse {
-            0%, 100% { 
-                transform: scale(1) rotate(0deg); 
-                filter: drop-shadow(0 0 8px var(--accent-green));
-            }
-            50% { 
-                transform: scale(1.15) rotate(5deg); 
-                filter: drop-shadow(0 0 15px var(--accent-green));
-            }
-        }
-        
-        .terminal-status {
+        .system-status {
             font-family: 'Courier New', monospace;
-            color: var(--terminal-color);
-            font-size: 13px;
-            position: absolute;
-            bottom: -18px;
-            right: 0;
-            opacity: 0.9;
-            background: rgba(0, 20, 0, 0.5);
-            padding: 3px 10px;
+            font-size: 12px;
+            color: var(--neon-green);
+            background: rgba(0, 20, 0, 0.3);
+            padding: 5px 10px;
             border-radius: 3px;
-            border-left: 2px solid var(--accent-green);
+            border-left: 2px solid var(--neon-green);
         }
         
-        nav ul {
+        .nav-links {
             display: flex;
-            list-style: none;
             gap: 25px;
+            list-style: none;
         }
         
-        nav a {
-            color: var(--text-color);
+        .nav-link {
+            color: var(--text-light);
             text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
+            font-weight: 600;
+            font-size: 16px;
             padding: 10px 20px;
             border-radius: 8px;
-            transition: all 0.4s;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(0, 255, 65, 0.1);
+            border: 1px solid transparent;
         }
         
-        nav a:hover {
-            color: var(--accent-green);
-            background: rgba(0, 255, 65, 0.1);
-            border-color: var(--accent-green);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 255, 65, 0.2);
-        }
-        
-        nav a i {
-            margin-left: 8px;
-            transition: transform 0.3s;
-        }
-        
-        nav a:hover i {
-            transform: scale(1.2);
-        }
-        
-        /* القسم الرئيسي */
-        .hero {
-            padding: 120px 5% 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(0, 255, 65, 0.15) 0%, transparent 45%),
-                radial-gradient(circle at 80% 70%, rgba(157, 0, 255, 0.15) 0%, transparent 45%),
-                linear-gradient(45deg, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
-            z-index: -1;
-        }
-        
-        .glitch-container {
-            position: relative;
-            margin-bottom: 40px;
-        }
-        
-        .glitch-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            position: relative;
-            letter-spacing: 4px;
-            background: linear-gradient(45deg, 
-                var(--accent-green) 0%, 
-                var(--accent-cyan) 30%, 
-                var(--accent-purple) 70%,
-                var(--accent-red) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: glitch-anim 5s infinite;
-            text-shadow: 
-                0 0 20px rgba(0, 255, 65, 0.5),
-                0 0 40px rgba(0, 255, 65, 0.3);
-        }
-        
-        @keyframes glitch-anim {
-            0%, 100% { 
-                transform: translate(0);
-                text-shadow: 
-                    0 0 20px rgba(0, 255, 65, 0.5),
-                    0 0 40px rgba(0, 255, 65, 0.3);
-            }
-            92% { transform: translate(0); }
-            93% { transform: translate(-2px, 1px); }
-            94% { transform: translate(1px, -2px); }
-            95% { transform: translate(-1px, 2px); }
-            96% { transform: translate(2px, -1px); }
-            97% { transform: translate(0); }
-        }
-        
-        .typewriter-container {
-            max-width: 800px;
-            margin: 0 auto 60px;
-            position: relative;
-        }
-        
-        .typewriter {
-            font-family: 'Courier New', monospace;
-            font-size: 1.6rem;
-            color: var(--terminal-color);
-            padding: 25px;
-            background: rgba(10, 20, 10, 0.4);
-            border-radius: 10px;
-            border: 2px solid rgba(0, 255, 65, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            line-height: 1.8;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .typewriter::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(0, 255, 65, 0.1), 
-                transparent);
-            animation: scan 4s linear infinite;
-        }
-        
-        @keyframes scan {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        /* أزرار التواصل في الأسفل */
-        .bottom-buttons {
-            position: fixed;
-            bottom: 30px;
-            left: 0;
-            width: 100%;
-            z-index: 99;
-            padding: 0 5%;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-btn {
-            padding: 18px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.3rem;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            min-width: 280px;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            backdrop-filter: blur(10px);
-            border: 2px solid transparent;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        .contact-btn::before {
+        .nav-link::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.8s;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
+            transition: left 0.5s;
         }
         
-        .contact-btn:hover::before {
+        .nav-link:hover::before {
             left: 100%;
         }
         
-        .contact-btn:hover {
-            transform: translateY(-8px) scale(1.05);
+        .nav-link:hover {
+            color: var(--neon-green);
+            border-color: var(--neon-green);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.2);
         }
         
-        .btn-telegram {
-            background: linear-gradient(135deg, 
-                rgba(0, 136, 255, 0.9) 0%, 
-                rgba(0, 136, 255, 0.7) 100%);
-            color: white;
-            border-color: #0088ff;
+        .nav-link i {
+            margin-left: 8px;
+        }
+        
+        /* القسم الرئيسي */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 65, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(157, 0, 255, 0.15) 0%, transparent 40%);
+            z-index: -1;
+        }
+        
+        .glitch-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            position: relative;
+            animation: glitch 3s infinite;
+            background: linear-gradient(45deg, 
+                var(--neon-green) 0%, 
+                var(--neon-cyan) 25%, 
+                var(--neon-purple) 50%,
+                var(--neon-red) 75%,
+                var(--neon-yellow) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 0 20px var(--neon-green),
+                0 0 40px var(--neon-green);
+        }
+        
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        .hacker-tagline {
+            font-size: 1.8rem;
+            color: var(--neon-cyan);
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+            line-height: 1.6;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+        
+        .terminal-window {
+            background: rgba(10, 20, 10, 0.4);
+            border: 2px solid var(--neon-green);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 900px;
+            width: 90%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
             box-shadow: 
-                0 10px 30px rgba(0, 136, 255, 0.4),
-                inset 0 0 20px rgba(255, 255, 255, 0.2);
+                0 0 30px rgba(0, 255, 65, 0.3),
+                inset 0 0 30px rgba(0, 255, 65, 0.1);
         }
         
-        .btn-telegram:hover {
-            background: linear-gradient(135deg, 
-                rgba(0, 136, 255, 1) 0%, 
-                rgba(0, 136, 255, 0.8) 100%);
-            box-shadow: 
-                0 15px 40px rgba(0, 136, 255, 0.6),
-                inset 0 0 30px rgba(255, 255, 255, 0.3);
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.3);
         }
         
-        .btn-bot {
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27ca3f; }
+        
+        .terminal-title {
+            font-family: 'Courier New', monospace;
+            color: var(--neon-green);
+            font-size: 14px;
+        }
+        
+        .terminal-content {
+            font-family: 'Courier New', monospace;
+            color: var(--neon-green);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            min-height: 150px;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 20px;
+            background: var(--neon-green);
+            animation: cursor-blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+        
+        @keyframes cursor-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* أزرار العمل */
+        .action-buttons {
+            display: flex;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .hacker-btn {
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-width: 250px;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
+        }
+        
+        .hacker-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+        
+        .hacker-btn:hover::before {
+            left: 100%;
+        }
+        
+        .hacker-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .btn-primary {
             background: linear-gradient(135deg, 
                 rgba(0, 255, 65, 0.9) 0%, 
                 rgba(0, 255, 65, 0.7) 100%);
             color: #000;
-            font-weight: 900;
-            border-color: var(--accent-green);
+            border-color: var(--neon-green);
             box-shadow: 
                 0 10px 30px rgba(0, 255, 65, 0.4),
                 inset 0 0 20px rgba(255, 255, 255, 0.3);
         }
         
-        .btn-bot:hover {
-            background: linear-gradient(135deg, 
-                rgba(0, 255, 65, 1) 0%, 
-                rgba(0, 255, 65, 0.8) 100%);
+        .btn-primary:hover {
             box-shadow: 
                 0 15px 40px rgba(0, 255, 65, 0.6),
                 inset 0 0 30px rgba(255, 255, 255, 0.4);
         }
         
+        .btn-secondary {
+            background: linear-gradient(135deg, 
+                rgba(0, 136, 255, 0.9) 0%, 
+                rgba(0, 136, 255, 0.7) 100%);
+            color: white;
+            border-color: var(--glow-blue);
+            box-shadow: 
+                0 10px 30px rgba(0, 136, 255, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 
+                0 15px 40px rgba(0, 136, 255, 0.6),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-tertiary {
+            background: linear-gradient(135deg, 
+                rgba(157, 0, 255, 0.9) 0%, 
+                rgba(157, 0, 255, 0.7) 100%);
+            color: white;
+            border-color: var(--neon-purple);
+            box-shadow: 
+                0 10px 30px rgba(157, 0, 255, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-tertiary:hover {
+            box-shadow: 
+                0 15px 40px rgba(157, 0, 255, 0.6),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        
         .btn-icon {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             transition: transform 0.5s;
         }
         
-        .contact-btn:hover .btn-icon {
+        .hacker-btn:hover .btn-icon {
             transform: rotate(360deg) scale(1.2);
         }
         
-        /* تأثيرات البطاقات */
-        .section {
+        /* أقسام الخدمات */
+        .services {
             padding: 100px 5%;
-            position: relative;
+            background: rgba(5, 5, 5, 0.8);
         }
         
         .section-title {
             text-align: center;
             margin-bottom: 80px;
-            position: relative;
         }
         
         .section-title h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 3.5rem;
-            display: inline-block;
-            color: var(--text-color);
+            color: var(--text-light);
             position: relative;
+            display: inline-block;
             padding-bottom: 20px;
-            text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
             width: 300px;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, 
-                var(--accent-green), 
-                var(--accent-cyan),
-                var(--accent-purple));
+                var(--neon-green), 
+                var(--neon-cyan),
+                var(--neon-purple));
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 3px;
-            box-shadow: 0 0 20px var(--accent-green);
+            border-radius: 2px;
+            box-shadow: 0 0 15px var(--neon-green);
         }
         
-        .hacker-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
             margin-top: 60px;
         }
         
-        .hacker-card {
-            background: rgba(15, 15, 15, 0.85);
+        .service-card {
+            background: rgba(15, 15, 15, 0.9);
             border-radius: 15px;
-            padding: 35px;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 40px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(0, 255, 65, 0.2);
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
         }
         
-        .hacker-card::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 8px;
+            width: 6px;
             height: 100%;
             background: linear-gradient(to bottom, 
-                var(--accent-green), 
-                var(--accent-cyan),
-                var(--accent-purple));
+                var(--neon-green), 
+                var(--neon-cyan),
+                var(--neon-purple));
         }
         
-        .hacker-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: var(--accent-green);
+        .service-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            border-color: var(--neon-green);
             box-shadow: 
-                0 20px 40px rgba(0, 255, 65, 0.3),
+                0 20px 50px rgba(0, 255, 65, 0.3),
                 inset 0 0 30px rgba(0, 255, 65, 0.1);
         }
         
-        .card-icon {
-            font-size: 3.2rem;
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--neon-green);
             margin-bottom: 25px;
-            color: var(--accent-green);
-            text-shadow: 0 0 15px var(--accent-green);
+            display: inline-block;
+            text-shadow: 0 0 15px var(--neon-green);
             transition: transform 0.5s;
         }
         
-        .hacker-card:hover .card-icon {
-            transform: rotateY(360deg);
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg) scale(1.2);
         }
         
-        .card-title {
+        .service-title {
             font-size: 2rem;
+            color: var(--neon-green);
             margin-bottom: 20px;
-            color: var(--accent-green);
-            font-weight: 800;
-            position: relative;
-            padding-bottom: 10px;
+            font-weight: 700;
         }
         
-        .card-title::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            background: var(--accent-green);
-            bottom: 0;
-            right: 0;
-            box-shadow: 0 0 10px var(--accent-green);
-        }
-        
-        .card-content {
-            color: var(--text-color);
-            line-height: 1.9;
-            font-size: 1.15rem;
+        .service-desc {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1.1rem;
             opacity: 0.9;
         }
         
-        /* قسم المطور */
-        .developer-section {
+        /* قسم البروفايل */
+        .profile-section {
+            padding: 100px 5%;
             background: rgba(0, 0, 0, 0.9);
+        }
+        
+        .hacker-profile {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(10, 10, 10, 0.95);
             border-radius: 20px;
-            padding: 70px;
-            margin-top: 70px;
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            padding: 60px;
+            border: 2px solid var(--neon-green);
             position: relative;
             overflow: hidden;
+            box-shadow: 
+                0 0 50px rgba(0, 255, 65, 0.2),
+                inset 0 0 50px rgba(0, 255, 65, 0.05);
         }
         
-        .developer-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 60%),
-                radial-gradient(circle, rgba(0, 136, 255, 0.08) 0%, transparent 60%);
-            z-index: -1;
-            animation: rotate 20s linear infinite;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .developer-header {
+        .profile-header {
             display: flex;
             align-items: center;
             gap: 40px;
@@ -613,25 +602,25 @@
             flex-wrap: wrap;
         }
         
-        .developer-avatar {
-            width: 180px;
-            height: 180px;
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 4px solid var(--accent-green);
+            border: 4px solid var(--neon-green);
             background: linear-gradient(135deg, #111, #222, #000);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
-            color: var(--accent-green);
+            font-size: 6rem;
+            color: var(--neon-green);
             box-shadow: 
-                0 0 40px rgba(0, 255, 65, 0.6),
-                inset 0 0 40px rgba(0, 0, 0, 0.8);
+                0 0 50px rgba(0, 255, 65, 0.6),
+                inset 0 0 50px rgba(0, 0, 0, 0.8);
             position: relative;
             overflow: hidden;
         }
         
-        .developer-avatar::before {
+        .profile-avatar::before {
             content: '';
             position: absolute;
             width: 300%;
@@ -640,66 +629,65 @@
                 transparent, 
                 rgba(0, 255, 65, 0.2), 
                 transparent);
-            animation: shine-avatar 3s linear infinite;
+            animation: shine 3s linear infinite;
         }
         
-        @keyframes shine-avatar {
+        @keyframes shine {
             0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
             100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
-        .developer-info h3 {
+        .profile-info h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.2rem;
-            color: var(--accent-green);
+            font-size: 3.5rem;
+            color: var(--neon-green);
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(0, 255, 65, 0.7);
         }
         
-        .developer-tagline {
+        .profile-tag {
             font-size: 1.5rem;
-            color: var(--accent-cyan);
-            font-weight: 700;
-            background: rgba(0, 136, 255, 0.1);
+            color: var(--neon-cyan);
+            background: rgba(0, 136, 255, 0.15);
             padding: 10px 25px;
             border-radius: 30px;
             display: inline-block;
             border: 1px solid rgba(0, 136, 255, 0.3);
+            font-weight: 600;
         }
         
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
             margin-top: 40px;
         }
         
-        .skill-tag {
+        .skill-badge {
             background: rgba(0, 255, 65, 0.15);
-            color: var(--accent-green);
-            padding: 12px 28px;
-            border-radius: 35px;
-            font-weight: 700;
+            color: var(--neon-green);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
             font-size: 1.1rem;
-            border: 2px solid rgba(0, 255, 65, 0.4);
-            transition: all 0.4s;
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
         }
         
-        .skill-tag:hover {
+        .skill-badge:hover {
             background: rgba(0, 255, 65, 0.3);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 255, 65, 0.3);
         }
         
-        /* الفوتر المطور */
+        /* الفوتر المتطور */
         footer {
-            background-color: rgba(5, 5, 5, 0.95);
+            background: rgba(5, 5, 5, 0.95);
             padding: 80px 5% 40px;
-            border-top: 2px solid rgba(0, 255, 65, 0.3);
+            border-top: 2px solid var(--neon-green);
             position: relative;
-            margin-top: 100px;
         }
         
         .footer-content {
@@ -711,188 +699,104 @@
             margin-bottom: 60px;
         }
         
-        .footer-logo {
+        .footer-brand {
             display: flex;
             align-items: center;
             gap: 15px;
         }
         
-        .footer-logo-text {
+        .footer-brand-text {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 900;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-cyan));
+            background: linear-gradient(45deg, var(--neon-green), var(--neon-cyan));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .footer-copyright {
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            color: var(--neon-green);
+            font-size: 1.3rem;
+        }
+        
+        .footer-bottom {
             text-align: center;
             padding-top: 40px;
             border-top: 1px solid rgba(0, 255, 65, 0.2);
-            color: var(--text-color);
-            font-size: 1.2rem;
-            opacity: 0.8;
+            color: var(--text-light);
         }
         
-        .footer-copyright span {
-            color: var(--accent-green);
-            font-weight: 900;
-            text-shadow: 0 0 10px var(--accent-green);
+        .footer-bottom span {
+            color: var(--neon-green);
+            font-weight: 700;
+            text-shadow: 0 0 10px var(--neon-green);
         }
         
-        /* ازرار التواصل في الفوتر */
-        .footer-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-        
-        /* تأثيرات للشاشات الصغيرة */
+        /* تأثيرات استجابة */
         @media (max-width: 1200px) {
-            .glitch-text {
-                font-size: 4rem;
-            }
-            
-            .hacker-grid {
-                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            }
+            .glitch-title { font-size: 4rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
         
         @media (max-width: 992px) {
-            .glitch-text {
-                font-size: 3.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.8rem;
-            }
-            
-            .developer-header {
-                justify-content: center;
-                text-align: center;
-            }
-            
-            .developer-avatar {
-                width: 160px;
-                height: 160px;
-                font-size: 4rem;
-            }
-            
-            .bottom-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .contact-btn {
-                width: 90%;
-                max-width: 400px;
-            }
-            
-            .footer-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
+            .glitch-title { font-size: 3.2rem; }
+            .section-title h2 { font-size: 2.8rem; }
+            .action-buttons { flex-direction: column; align-items: center; }
+            .hacker-btn { width: 100%; max-width: 400px; }
+            .profile-header { justify-content: center; text-align: center; }
         }
         
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 25px;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-            
-            nav a {
-                font-size: 16px;
-                padding: 8px 16px;
-            }
-            
-            .glitch-text {
-                font-size: 2.5rem;
-                letter-spacing: 2px;
-            }
-            
-            .typewriter {
-                font-size: 1.3rem;
-                padding: 20px;
-            }
-            
-            .section {
-                padding: 70px 5%;
-            }
-            
-            .hacker-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .developer-section {
-                padding: 40px;
-            }
-            
-            .developer-info h3 {
-                font-size: 2.5rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .bottom-buttons {
-                position: static;
-                margin: 40px auto;
-                padding: 20px;
-            }
+            .navbar { flex-direction: column; gap: 20px; padding: 15px 5%; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .glitch-title { font-size: 2.5rem; }
+            .hacker-tagline { font-size: 1.4rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card { padding: 30px; }
+            .profile-avatar { width: 150px; height: 150px; font-size: 4.5rem; }
+            .profile-info h3 { font-size: 2.5rem; }
+            .footer-content { flex-direction: column; text-align: center; }
         }
         
         /* تأثيرات إضافية */
-        .floating-elements {
+        .scan-line {
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: scan 3s linear infinite;
+            z-index: 999;
             pointer-events: none;
-            z-index: -1;
         }
         
-        .floating-element {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            border: 2px solid rgba(0, 255, 65, 0.3);
-            border-radius: 50%;
-            animation: float 20s infinite linear;
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
         }
         
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translate(calc(100vw - 100px), calc(100vh - 100px)) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        /* تأثيرات الكود */
-        .code-snippet {
-            position: absolute;
-            color: var(--accent-green);
+        .code-popup {
+            position: fixed;
+            color: var(--neon-green);
             font-family: 'Courier New', monospace;
             font-size: 14px;
             opacity: 0;
@@ -901,417 +805,408 @@
             background: rgba(0, 20, 0, 0.3);
             padding: 5px 10px;
             border-radius: 5px;
-            border-left: 3px solid var(--accent-green);
+            border-left: 3px solid var(--neon-green);
         }
     </style>
 </head>
 <body>
+    <!-- خط المسح -->
+    <div class="scan-line"></div>
+    
     <!-- شريط التحميل -->
-    <div class="loading-bar"></div>
+    <div class="loader"></div>
     
-    <!-- تأثير المصفوفة المحسن -->
-    <div class="matrix-container" id="matrixContainer"></div>
+    <!-- خلفية المصفوفة -->
+    <div class="matrix-bg" id="matrixBg"></div>
     
-    <!-- تأثيرات عائمة -->
-    <div class="floating-elements" id="floatingElements"></div>
+    <!-- جسيمات عائمة -->
+    <div class="particles" id="particles"></div>
     
     <!-- الهيدر -->
-    <header>
-        <div class="logo">
-            <i class="fas fa-user-ninja logo-icon"></i>
-            <div class="logo-text">❍❥𝐇𝐀𝐌𝐙𝐀||:❥❍</div>
-            <div class="terminal-status">STATUS: ONLINE | ENCRYPTION: ACTIVE</div>
+    <nav class="navbar">
+        <div class="brand">
+            <i class="fas fa-user-secret brand-icon"></i>
+            <div class="brand-text">❍❥𝐇𝐀𝐌𝐙𝐀||:❥❍</div>
+            <div class="system-status">SYSTEM: ONLINE</div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
-                <li><a href="#hacking"><i class="fas fa-shield-alt"></i> الهكر الأخلاقي</a></li>
-                <li><a href="#about"><i class="fas fa-user-ninja"></i> عن حمزه</a></li>
-                <li><a href="#services"><i class="fas fa-tools"></i> الخدمات</a></li>
-            </ul>
-        </nav>
-    </header>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="#services" class="nav-link"><i class="fas fa-shield-alt"></i> الخدمات</a></li>
+            <li><a href="#profile" class="nav-link"><i class="fas fa-user-ninja"></i> البروفايل</a></li>
+            <li><a href="#contact" class="nav-link"><i class="fas fa-terminal"></i> الاتصال</a></li>
+        </ul>
+    </nav>
     
     <!-- القسم الرئيسي -->
     <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="glitch-container">
-            <div class="glitch-text">عالم الهاكر حمزه</div>
+        <div class="hero-overlay"></div>
+        <h1 class="glitch-title">الهاكر الأخلاقي</h1>
+        <p class="hacker-tagline">حمزه | خبير أمن معلومات واختبار اختراق متقدم</p>
+        
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="terminal-title">root@hacker:~</div>
+            </div>
+            <div class="terminal-content" id="terminalContent"></div>
         </div>
         
-        <div class="typewriter-container">
-            <div class="typewriter" id="typewriter">
-                
-            </div>
-        </div>
-    </section>
-    
-    <!-- معلومات عن الهكر -->
-    <section class="section" id="hacking">
-        <div class="section-title">
-            <h2>عالم الهكر الأخلاقي</h2>
-        </div>
-        
-        <div class="hacker-grid">
-            <div class="hacker-card">
-                <div class="card-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 class="card-title">أمن المعلومات</h3>
-                <p class="card-content">حماية الأنظمة والشبكات من الهجمات الرقمية عبر اكتشاف الثغرات الأمنية وإصلاحها قبل استغلالها من قبل جهات ضارة.</p>
-            </div>
-            
-            <div class="hacker-card">
-                <div class="card-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3 class="card-title">اختبار الاختراق</h3>
-                <p class="card-content">محاكاة هجمات حقيقية على الأنظمة لاكتشاف نقاط الضعف وتقييم مستوى الحماية وتقديم تقارير مفصلة للتحسين.</p>
-            </div>
-            
-            <div class="hacker-card">
-                <div class="card-icon">
-                    <i class="fas fa-bug"></i>
-                </div>
-                <h3 class="card-title">تحليل الثغرات</h3>
-                <p class="card-content">فحص التطبيقات والشبكات لاكتشاف الثغرات الأمنية وتصنيفها حسب خطورتها واقتراح الحلول المناسبة.</p>
-            </div>
-            
-            <div class="hacker-card">
-                <div class="card-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3 class="card-title">أدوات متقدمة</h3>
-                <p class="card-content">استخدام أدوات احترافية مثل Nmap، Metasploit، Wireshark، Burp Suite وغيرها لتنفيذ الاختبارات الأمنية.</p>
-            </div>
-            
-            <div class="hacker-card">
-                <div class="card-icon">
-                    <i class="fas fa-user-secret"></i>
-                </div>
-                <h3 class="card-title">القبعة البيضاء</h3>
-                <p class="card-content">هم الخبراء الذين يستخدمون مهارات الاختراق لمساعدة المؤسسات في حماية أنظمتها وليس للإضرار بها.</p>
-            </div>
-            
-            <div class="hacker-card">
-                <div class="card-icon">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <h3 class="card-title">تشفير البيانات</h3>
-                <p class="card-content">استخدام تقنيات التشفير المتقدمة لحماية البيانات الحساسة ومنع الوصول غير المصرح به إليها.</p>
-            </div>
+        <div class="action-buttons">
+            <a href="https://t.me/jt_r3r" class="hacker-btn btn-primary" target="_blank">
+                <i class="fab fa-telegram-plane btn-icon"></i>
+                <span>تلكرام القيادة حمزه</span>
+            </a>
+            <a href="https://t.me/Hacked_bbot" class="hacker-btn btn-secondary" target="_blank">
+                <i class="fas fa-robot btn-icon"></i>
+                <span>BOT_ELMSRIY</span>
+            </a>
+            <a href="#services" class="hacker-btn btn-tertiary">
+                <i class="fas fa-tools btn-icon"></i>
+                <span>خدماتي</span>
+            </a>
         </div>
     </section>
     
     <!-- قسم الخدمات -->
-    <section class="section" id="services">
+    <section class="services" id="services">
         <div class="section-title">
-            <h2>الخدمات المقدمة</h2>
+            <h2>الخدمات الاحترافية</h2>
         </div>
         
-        <div class="hacker-grid">
-            <div class="hacker-card">
-                <div class="card-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <h3 class="card-title">فحص الأمان</h3>
-                <p class="card-content">فحص شامل للمواقع والتطبيقات لاكتشاف الثغرات الأمنية وتقديم تقرير مفصل مع الحلول.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-shield-alt service-icon"></i>
+                <h3 class="service-title">أمن المعلومات</h3>
+                <p class="service-desc">حماية الأنظمة والشبكات من الهجمات الرقمية عبر اكتشاف وإصلاح الثغرات الأمنية قبل استغلالها.</p>
             </div>
             
-            <div class="hacker-card">
-                <div class="card-icon">
-                    <i class="fas fa-user-shield"></i>
-                </div>
-                <h3 class="card-title">حماية البيانات</h3>
-                <p class="card-content">تأمين البيانات الحساسة وحماية الخصوصية الرقمية للأفراد والمؤسسات.</p>
+            <div class="service-card">
+                <i class="fas fa-bug service-icon"></i>
+                <h3 class="service-title">اختبار الاختراق</h3>
+                <p class="service-desc">محاكاة هجمات حقيقية لاكتشاف نقاط الضعف وتقديم تقارير مفصلة للتحسين.</p>
             </div>
             
-            <div class="hacker-card">
-                <div class="card-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3 class="card-title">تدريب أمني</h3>
-                <p class="card-content">دورات تدريبية متخصصة في الأمن السيبراني واختبار الاختراق للمهتمين.</p>
+            <div class="service-card">
+                <i class="fas fa-code service-icon"></i>
+                <h3 class="service-title">تحليل الثغرات</h3>
+                <p class="service-desc">فحص التطبيقات والشبكات لاكتشاف الثغرات وتصنيفها حسب خطورتها.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-lock service-icon"></i>
+                <h3 class="service-title">تشفير البيانات</h3>
+                <p class="service-desc">استخدام تقنيات التشفير المتقدمة لحماية البيانات الحساسة من الوصول غير المصرح.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-user-shield service-icon"></i>
+                <h3 class="service-title">حماية الخصوصية</h3>
+                <p class="service-desc">تأمين البيانات الشخصية وحماية الخصوصية الرقمية للأفراد والمؤسسات.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-graduation-cap service-icon"></i>
+                <h3 class="service-title">تدريب أمني</h3>
+                <p class="service-desc">دورات متخصصة في الأمن السيبراني واختبار الاختراق للراغبين في التخصص.</p>
             </div>
         </div>
     </section>
     
-    <!-- قسم عن حمزه -->
-    <section class="section" id="about">
+    <!-- قسم البروفايل -->
+    <section class="profile-section" id="profile">
         <div class="section-title">
-            <h2>عن المطور / حمزه</h2>
+            <h2>البروفايل الاحترافي</h2>
         </div>
         
-        <div class="developer-section">
-            <div class="developer-header">
-                <div class="developer-avatar">
+        <div class="hacker-profile">
+            <div class="profile-header">
+                <div class="profile-avatar">
                     <i class="fas fa-user-ninja"></i>
                 </div>
-                <div class="developer-info">
-                    <h3>حمزه | الهاكر</h3>
-                    <div class="developer-tagline">هاكر أخلاقي & خبير أمن معلومات</div>
+                <div class="profile-info">
+                    <h3>حمزه | الهاكر الأخلاقي</h3>
+                    <div class="profile-tag">خبير أمن معلومات & هاكر أخلاقي</div>
                 </div>
             </div>
             
-            <p class="card-content" style="font-size: 1.3rem; margin-bottom: 40px; line-height: 2;">
-                أنا حمزه، متخصص في الأمن السيبراني والبرمجة. أمتلك خبرة واسعة في اكتشاف الثغرات الأمنية واختبار اختراق الأنظمة. 
-                أساعد المؤسسات والأفراد في حماية أنظمتهم الرقمية من الهجمات الإلكترونية وتأمين بياناتهم الحساسة.
-                <br><br>
-                هدفي هو نشر الوعي الأمني وتقديم حلول أمنية مبتكرة لمجتمع التكنولوجيا العربي. 
-                أؤمن بأن المعرفة يجب أن تشارك لتحسين مستوى الأمان الرقمي للجميع.
+            <p class="service-desc" style="font-size: 1.3rem; margin-bottom: 40px;">
+                أتميز بخبرة واسعة في مجال الأمن السيبراني واختبار الاختراق. أقدم حلول أمنية مبتكرة للمؤسسات والأفراد، 
+                مع التركيز على حماية البيانات والخصوصية الرقمية. هدفي هو رفع مستوى الوعي الأمني في المجتمع العربي 
+                وتقديم خدمات احترافية تضمن أقصى درجات الحماية لأنظمتك الرقمية.
             </p>
             
-            <h3 style="color: var(--accent-green); margin-bottom: 25px; font-size: 1.8rem;">المهارات التقنية:</h3>
+            <h3 style="color: var(--neon-green); margin-bottom: 25px; font-size: 1.8rem;">المهارات المتقدمة:</h3>
             <div class="skills-container">
-                <div class="skill-tag">أمن المعلومات</div>
-                <div class="skill-tag">اختبار الاختراق</div>
-                <div class="skill-tag">تحليل الثغرات</div>
-                <div class="skill-tag">برمجة بايثون</div>
-                <div class="skill-tag">تحليل الشبكات</div>
-                <div class="skill-tag">تشفير البيانات</div>
-                <div class="skill-tag">تطوير الويب</div>
-                <div class="skill-tag">أنظمة لينكس</div>
-                <div class="skill-tag">تحقيق جرائم رقمية</div>
-                <div class="skill-tag">استعادة البيانات</div>
+                <div class="skill-badge">أمن المعلومات</div>
+                <div class="skill-badge">Penetration Testing</div>
+                <div class="skill-badge">تحليل الثغرات</div>
+                <div class="skill-badge">Python Programming</div>
+                <div class="skill-badge">تحليل الشبكات</div>
+                <div class="skill-badge">تشفير البيانات</div>
+                <div class="skill-badge">Web Development</div>
+                <div class="skill-badge">Linux Systems</div>
+                <div class="skill-badge">Digital Forensics</div>
+                <div class="skill-badge">Security Auditing</div>
             </div>
         </div>
     </section>
     
     <!-- الفوتر -->
-    <footer>
+    <footer id="contact">
         <div class="footer-content">
-            <div class="footer-logo">
-                <i class="fas fa-user-ninja logo-icon"></i>
-                <div class="footer-logo-text">❍❥𝐇𝐀𝐌𝐙𝐀||:❥❍</div>
+            <div class="footer-brand">
+                <i class="fas fa-user-secret brand-icon"></i>
+                <div class="footer-brand-text">❍❥𝐇𝐀𝐌𝐙𝐀||:❥❍</div>
             </div>
-        </div>
-        
-        <!-- أزرار التواصل في الفوتر -->
-        <div class="footer-buttons">
-            <a href="https://t.me/jt_r3r" class="contact-btn btn-telegram" target="_blank" id="telegramBtn">
-                <i class="fab fa-telegram-plane btn-icon"></i>
-                <span>التواصل مع حمزه</span>
-            </a>
             
-            <a href="https://t.me/Hacked_bbot" class="contact-btn btn-bot" target="_blank" id="botBtn">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram: @jt_r3r</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-robot"></i>
+                    <span>Hacker Bot: @Hacked_bbot</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>للأعمال الاحترافية</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="https://t.me/jt_r3r" class="hacker-btn btn-primary" target="_blank">
+                <i class="fab fa-telegram-plane btn-icon"></i>
+                <span>تحدث مع القيادة حمزه</span>
+            </a>
+            <a href="https://t.me/Hacked_bbot" class="hacker-btn btn-secondary" target="_blank">
                 <i class="fas fa-robot btn-icon"></i>
-                <span>فتح بوت الهاكر</span>
+                <span>فتح BOT_ELMSRIY</span>
             </a>
         </div>
         
-        <div class="footer-copyright">
-            جميع الحقوق محفوظة &copy; <span id="currentYear"></span> لـ <span>الهاكر حمزه</span>
-            <div style="font-size: 1rem; margin-top: 15px; color: #666;">
-                هذا الموقع لـحمزه 
-            </div>
+        <div class="footer-bottom">
+            جميع الحقوق محفوظة &copy; <span id="currentYear"></span> لـ <span>الهاكر حمزه</span> | 
+            <span style="color: var(--neon-cyan);"> ←← تم تطوير الموقع بواسطة القياده حمزه →→ </span>
         </div>
     </footer>
     
     <script>
-        // إنشاء تأثير المصفوفة المحسن
-        function createMatrixEffect() {
-            const container = document.getElementById('matrixContainer');
-            const chars = "01"; // استخدام 0 و 1 فقط
-            const columnCount = 80; // زيادة عدد الأعمدة
+        // توليد خلفية المصفوفة
+        function createMatrixBackground() {
+            const matrixBg = document.getElementById('matrixBg');
+            const patterns = [
+                "11101101011010010101010101010",
+                "00010100110111100110001110001",
+                "11101101011010010101010101010",
+                "0001010011011110011000111100",
+                "11101101011010010101010101010",
+                "10101010101010101010101010101",
+                "01010101010101010101010101010",
+                "1100110011001100110011001100",
+                "0011001100110011001100110011"
+            ];
             
-            for (let i = 0; i < columnCount; i++) {
+            for (let i = 0; i < 80; i++) {
                 const column = document.createElement('div');
                 column.className = 'matrix-column';
                 
-                // توزيع عشوائي للأعمدة
-                column.style.left = `${(i / columnCount) * 100}vw`;
+                // اختيار نمط عشوائي
+                const pattern = patterns[Math.floor(Math.random() * patterns.length)];
                 
-                // إنشاء الأحرف لكل عمود
-                const charCount = Math.floor(Math.random() * 30) + 40; // زيادة عدد الأحرف
-                let columnContent = '';
-                
-                for (let j = 0; j < charCount; j++) {
-                    const char = document.createElement('span');
-                    char.className = 'matrix-char';
+                // تقسيم النمط إلى أعمدة فردية
+                for (let j = 0; j < pattern.length; j++) {
+                    const char = document.createElement('div');
+                    char.textContent = pattern[j];
+                    char.style.marginBottom = '2px';
                     
-                    // 80% احتمال أن يكون 0 أو 1، 20% احتمال أن يكون حرف أو رمز
-                    if (Math.random() < 0.8) {
-                        char.textContent = Math.random() > 0.5 ? '0' : '1';
-                    } else {
-                        char.textContent = chars[Math.floor(Math.random() * chars.length)];
-                    }
-                    
-                    // تأثير تلاشي تدريجي للأحرف القديمة
-                    if (j < charCount * 0.3) {
-                        char.classList.add('fade');
-                    } else if (j > charCount * 0.7 && Math.random() > 0.7) {
-                        char.classList.add('bright');
-                    }
-                    
-                    // إضافة تأثير عشوائي
-                    if (Math.random() > 0.9) {
-                        char.style.color = '#ffffff';
-                        char.style.textShadow = '0 0 15px #ffffff, 0 0 30px #00ff41';
-                    }
+                    // تدرج الألوان
+                    const opacity = 0.2 + (j / pattern.length) * 0.8;
+                    char.style.opacity = opacity;
                     
                     column.appendChild(char);
                 }
                 
                 // إعدادات الحركة
-                const duration = Math.random() * 15 + 10; // سرعات مختلفة
-                const delay = Math.random() * 5;
+                column.style.left = `${(i / 80) * 100}%`;
+                column.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                column.style.animationDelay = `${Math.random() * 5}s`;
+                column.style.fontSize = `${Math.random() * 4 + 14}px`;
                 
-                column.style.animationDuration = `${duration}s`;
-                column.style.animationDelay = `${delay}s`;
-                column.style.fontSize = `${Math.random() * 6 + 18}px`; // حجم خط متغير
-                
-                // شدة التأثير
-                column.style.opacity = Math.random() * 0.4 + 0.6; // زيادة الشفافية
-                
-                container.appendChild(column);
-                
-                // تأثير تحديث الأحرف بشكل دوري
-                setInterval(() => {
-                    const charsInColumn = column.querySelectorAll('.matrix-char');
-                    charsInColumn.forEach((char, index) => {
-                        // تحريك تأثير التلاشي
-                        if (index < charsInColumn.length * 0.3) {
-                            char.classList.add('fade');
-                            char.classList.remove('bright');
-                        } else if (index > charsInColumn.length * 0.7 && Math.random() > 0.5) {
-                            char.classList.remove('fade');
-                            char.classList.add('bright');
-                        } else {
-                            char.classList.remove('fade', 'bright');
-                        }
-                        
-                        // تغيير الحرف أحياناً
-                        if (Math.random() > 0.95) {
-                            if (Math.random() < 0.8) {
-                                char.textContent = Math.random() > 0.5 ? '0' : '1';
-                            } else {
-                                char.textContent = chars[Math.floor(Math.random() * chars.length)];
-                            }
-                        }
-                        
-                        // تأثير وميض عشوائي
-                        if (Math.random() > 0.98) {
-                            char.style.color = '#ffffff';
-                            char.style.textShadow = '0 0 15px #ffffff, 0 0 30px #00ff41';
-                            setTimeout(() => {
-                                char.style.color = '';
-                                char.style.textShadow = '';
-                            }, 200);
-                        }
-                    });
-                }, 100);
+                matrixBg.appendChild(column);
             }
+        }
+        
+        // توليد الجسيمات
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
             
-            // إضافة أعمدة إضافية تتحرك بشكل جانبي
-            for (let i = 0; i < 15; i++) {
-                const diagonalColumn = document.createElement('div');
-                diagonalColumn.className = 'matrix-column';
-                diagonalColumn.style.left = `${Math.random() * 100}vw`;
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
                 
-                // حركة مائلة
-                const xMovement = (Math.random() - 0.5) * 100;
-                diagonalColumn.style.animation = `matrix-rain ${Math.random() * 20 + 15}s linear infinite`;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
                 
-                // إنشاء محتوى العمود
-                const diagonalCharCount = Math.floor(Math.random() * 25) + 20;
-                for (let j = 0; j < diagonalCharCount; j++) {
-                    const char = document.createElement('span');
-                    char.className = 'matrix-char';
-                    char.textContent = Math.random() > 0.7 ? '0' : '1';
-                    char.style.display = 'block';
-                    
-                    if (j < diagonalCharCount * 0.4) {
-                        char.classList.add('fade');
+                // ألوان متنوعة
+                const colors = [
+                    'var(--neon-green)',
+                    'var(--neon-cyan)',
+                    'var(--neon-purple)',
+                    'var(--neon-red)'
+                ];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // تأثير الكتابة في التيرمينال
+        function typeTerminalText() {
+            const terminal = document.getElementById('terminalContent');
+            const lines = [
+                "> تحميل النظام...",
+                "> الاتصال بالخادم...",
+                "> التحقق من الأمان...",
+                "> SYSTEM STATUS: ONLINE",
+                "> ENCRYPTION: AES-256 ACTIVE",
+                "> FIREWALL: PROTECTION ENABLED",
+                "> THREAT DETECTION: 0 THREATS FOUND",
+                "> USER: HAMZA | PRIVILEGES: ROOT",
+                "> WELCOME TO THE HACKER'S TERMINAL",
+                "> للبدء، اختر أحد الأزرار أدناه..."
+            ];
+            
+            let lineIndex = 0;
+            let charIndex = 0;
+            let currentLine = '';
+            
+            function typeLine() {
+                if (lineIndex < lines.length) {
+                    if (charIndex < lines[lineIndex].length) {
+                        currentLine += lines[lineIndex].charAt(charIndex);
+                        terminal.innerHTML = currentLine + '<span class="cursor"></span>';
+                        charIndex++;
+                        setTimeout(typeLine, 50);
+                    } else {
+                        currentLine += '<br>';
+                        lineIndex++;
+                        charIndex = 0;
+                        setTimeout(typeLine, 500);
                     }
-                    
-                    diagonalColumn.appendChild(char);
                 }
-                
-                diagonalColumn.style.fontSize = `${Math.random() * 5 + 16}px`;
-                diagonalColumn.style.opacity = Math.random() * 0.3 + 0.4;
-                
-                container.appendChild(diagonalColumn);
             }
-        }
-        
-        // إنشاء تأثيرات عائمة
-        function createFloatingElements() {
-            const container = document.getElementById('floatingElements');
             
-            for (let i = 0; i < 15; i++) {
-                const element = document.createElement('div');
-                element.className = 'floating-element';
-                element.style.left = `${Math.random() * 100}vw`;
-                element.style.top = `${Math.random() * 100}vh`;
-                element.style.borderColor = `rgba(${Math.random() > 0.5 ? '0, 255, 65' : '0, 136, 255'}, ${Math.random() * 0.4 + 0.2})`;
-                element.style.width = `${Math.random() * 40 + 20}px`;
-                element.style.height = element.style.width;
-                element.style.animationDuration = `${Math.random() * 30 + 20}s`;
-                element.style.animationDelay = `${Math.random() * 10}s`;
-                
-                container.appendChild(element);
-            }
+            setTimeout(typeLine, 1000);
         }
         
-        // تأثير الكتابة الآلية بدون مسح
-        function initTypewriter() {
-            const typewriter = document.getElementById('typewriter');
-            const fullText = `// مرحباً بك في عالم الأمن السيبراني والأخلاقي. أنا حمزه، هاكر أخلاقي ومتخصص في أمن المعلومات.
-// استكشف عالم الحماية الرقمية، اختبار الاختراق، وتحليل الثغرات الأمنية.
-// SYSTEM: SECURE | CONNECTION: ENCRYPTED | PROTECTION: ACTIVE
-// للتواصل معي أو الوصول إلى أدوات الأمن السيبراني، استخدم الأزرار الموجودة في أسفل الموقع.`;
+        // تأثيرات عشوائية للكود
+        function createCodeEffects() {
+            const codeLines = [
+                "if (security.check()) { access.grant(); }",
+                "const encrypted = AES256.encrypt(data);",
+                "firewall.protect(network);",
+                "penTest.scan(vulnerabilities);",
+                "database.encrypt(sensitiveData);",
+                "threats.detect(malware);",
+                "system.secure(true);",
+                "connection.encrypt(AES256);"
+            ];
+            
+            setInterval(() => {
+                if (Math.random() > 0.8) {
+                    const codePopup = document.createElement('div');
+                    codePopup.className = 'code-popup';
+                    codePopup.textContent = codeLines[Math.floor(Math.random() * codeLines.length)];
+                    
+                    codePopup.style.left = `${Math.random() * 80 + 10}vw`;
+                    codePopup.style.top = `${Math.random() * 80 + 10}vh`;
+                    
+                    document.body.appendChild(codePopup);
+                    
+                    // تأثير الظهور والاختفاء
+                    let opacity = 0;
+                    const fadeIn = setInterval(() => {
+                        opacity += 0.05;
+                        codePopup.style.opacity = opacity;
+                        if (opacity >= 0.8) {
+                            clearInterval(fadeIn);
+                            setTimeout(() => {
+                                const fadeOut = setInterval(() => {
+                                    opacity -= 0.05;
+                                    codePopup.style.opacity = opacity;
+                                    if (opacity <= 0) {
+                                        clearInterval(fadeOut);
+                                        codePopup.remove();
+                                    }
+                                }, 50);
+                            }, 1500);
+                        }
+                    }, 50);
+                }
+            }, 2000);
+        }
+        
+        // تحديث حالة النظام
+        function updateSystemStatus() {
+            const statusElement = document.querySelector('.system-status');
+            const statuses = [
+                "SYSTEM: ONLINE",
+                "ENCRYPTION: ACTIVE",
+                "THREATS: 0 DETECTED",
+                "FIREWALL: PROTECTED",
+                "CONNECTION: SECURE",
+                "ACCESS: ROOT PRIVILEGES"
+            ];
             
             let index = 0;
-            
-            function type() {
-                if (index < fullText.length) {
-                    typewriter.textContent += fullText.charAt(index);
-                    index++;
-                    setTimeout(type, 30); // سرعة الكتابة
-                }
-            }
-            
-            // بدء الكتابة بعد تحميل الصفحة
-            setTimeout(type, 1000);
+            setInterval(() => {
+                statusElement.textContent = statuses[index];
+                statusElement.style.opacity = '0.7';
+                setTimeout(() => {
+                    statusElement.style.opacity = '1';
+                }, 200);
+                index = (index + 1) % statuses.length;
+            }, 3000);
         }
         
-        // إصلاح روابط التيليجرام
-        function fixTelegramLinks() {
-            const telegramBtn = document.getElementById('telegramBtn');
-            const botBtn = document.getElementById('botBtn');
+        // تأثيرات التمرير
+        function initScrollEffects() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
             
-            // إصلاح الروابط - إضافة https://
-            telegramBtn.href = "https://t.me/jt_r3r";
-            botBtn.href = "https://t.me/Hacked_bbot";
-            
-            // إضافة معالج النقر للتأكد من فتح الرابط الصحيح
-            telegramBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.open("https://t.me/jt_r3r", "_blank");
+            // مراقبة البطاقات
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'opacity 0.8s, transform 0.8s';
+                observer.observe(card);
             });
             
-            botBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.open("https://t.me/Hacked_bbot", "_blank");
-            });
-            
-            // إضافة رسالة تأكيد
-            telegramBtn.addEventListener('mouseenter', function() {
-                this.title = "انقر للتواصل مع حمزه على التيليجرام";
-            });
-            
-            botBtn.addEventListener('mouseenter', function() {
-                this.title = "انقر لفتح بوت الهاكر على التيليجرام";
-            });
+            // مراقبة قسم البروفايل
+            const profileSection = document.querySelector('.hacker-profile');
+            profileSection.style.opacity = '0';
+            profileSection.style.transform = 'translateY(50px)';
+            profileSection.style.transition = 'opacity 1s, transform 1s';
+            observer.observe(profileSection);
         }
         
-        // تحديث السنة
-        function updateYear() {
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-        }
-        
-        // تأثيرات التمرير السلس
-        function initSmoothScroll() {
+        // تهيئة الروابط
+        function initLinks() {
+            // روابط التنقل السلس
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     if (this.getAttribute('href') === '#') return;
@@ -1328,143 +1223,99 @@
                     }
                 });
             });
-        }
-        
-        // تأثيرات عند التمرير
-        function initScrollEffects() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+            
+            // روابط خارجية
+            document.querySelectorAll('a[href*="t.me"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (!this.target || this.target !== '_blank') {
+                        e.preventDefault();
+                        window.open(this.href, '_blank');
                     }
                 });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
             });
-            
-            // مراقبة البطاقات
-            document.querySelectorAll('.hacker-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(50px)';
-                card.style.transition = 'opacity 0.8s, transform 0.8s';
-                observer.observe(card);
-            });
-            
-            // مراقبة قسم المطور
-            const developerSection = document.querySelector('.developer-section');
-            developerSection.style.opacity = '0';
-            developerSection.style.transform = 'translateY(50px)';
-            developerSection.style.transition = 'opacity 1s, transform 1s';
-            observer.observe(developerSection);
         }
         
-        // تأثيرات الكود العشوائية
-        function createCodeEffects() {
-            const codeSnippets = [
-                "if (security.check()) { access.grant(); }",
-                "const encrypted = AES256.encrypt(data);",
-                "firewall.protect(network);",
-                "penTest.scan(vulnerabilities);",
-                "database.encrypt(sensitiveData);",
-                "threats.detect(malware);",
-                "system.secure(true);",
-                "connection.encrypt(AES256);"
-            ];
-            
-            setInterval(() => {
-                if (Math.random() > 0.7) {
-                    const code = document.createElement('div');
-                    code.className = 'code-snippet';
-                    code.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-                    code.style.left = `${Math.random() * 90 + 5}vw`;
-                    code.style.top = `${Math.random() * 90 + 5}vh`;
-                    code.style.fontSize = `${Math.random() * 8 + 12}px`;
-                    
-                    document.body.appendChild(code);
-                    
-                    // تأثير الظهور والاختفاء
-                    let opacity = 0;
-                    const fadeIn = setInterval(() => {
-                        opacity += 0.05;
-                        code.style.opacity = opacity;
-                        if (opacity >= 1) clearInterval(fadeIn);
-                    }, 30);
-                    
-                    setTimeout(() => {
-                        const fadeOut = setInterval(() => {
-                            opacity -= 0.05;
-                            code.style.opacity = opacity;
-                            if (opacity <= 0) {
-                                clearInterval(fadeOut);
-                                code.remove();
-                            }
-                        }, 30);
-                    }, 2000);
-                }
-            }, 1000);
-        }
-        
-        // تهيئة كل التأثيرات
+        // تهيئة الموقع
         document.addEventListener('DOMContentLoaded', function() {
-            createMatrixEffect();
-            createFloatingElements();
-            initTypewriter();
-            fixTelegramLinks();
-            updateYear();
-            initSmoothScroll();
-            initScrollEffects();
-            createCodeEffects();
-            
-            // تأثير إضافي عند تحميل الصفحة
+            // إخفاء شريط التحميل
             setTimeout(() => {
-                document.querySelector('.loading-bar').style.opacity = '0';
+                document.querySelector('.loader').style.opacity = '0';
                 setTimeout(() => {
-                    document.querySelector('.loading-bar').remove();
-                }, 1000);
+                    document.querySelector('.loader').remove();
+                }, 500);
             }, 2000);
             
-            // تحديث حالة النظام في الهيدر
-            const statusElement = document.querySelector('.terminal-status');
-            const statuses = [
-                "STATUS: ONLINE | ENCRYPTION: ACTIVE",
-                "SYSTEM: SECURE | THREATS: 0",
-                "CONNECTION: ENCRYPTED | PROTECTION: MAX",
-                "ACCESS: GRANTED | FIREWALL: ACTIVE"
-            ];
+            // تهيئة التأثيرات
+            createMatrixBackground();
+            createParticles();
+            typeTerminalText();
+            createCodeEffects();
+            updateSystemStatus();
+            initScrollEffects();
+            initLinks();
             
-            let statusIndex = 0;
-            setInterval(() => {
-                statusElement.textContent = statuses[statusIndex];
-                statusIndex = (statusIndex + 1) % statuses.length;
-                
-                // تأثير وميض
-                statusElement.style.opacity = '0.7';
-                setTimeout(() => {
-                    statusElement.style.opacity = '1';
-                }, 200);
-            }, 5000);
+            // تحديث السنة
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            // إضافة تأثيرات عشوائية للمصفوفة
-            setInterval(() => {
-                const columns = document.querySelectorAll('.matrix-column');
-                if (columns.length > 0) {
-                    const randomColumn = columns[Math.floor(Math.random() * columns.length)];
-                    const chars = randomColumn.querySelectorAll('.matrix-char');
+            // تأثيرات الماوس
+            document.addEventListener('mousemove', function(e) {
+                if (Math.random() > 0.97) {
+                    const x = e.clientX;
+                    const y = e.clientY;
                     
-                    if (chars.length > 0) {
-                        // جعل بعض الأحرف تلمع بشكل عشوائي
-                        for (let i = 0; i < 5; i++) {
-                            const randomChar = chars[Math.floor(Math.random() * chars.length)];
-                            randomChar.classList.add('bright');
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'fixed';
+                    ripple.style.width = '100px';
+                    ripple.style.height = '100px';
+                    ripple.style.left = (x - 50) + 'px';
+                    ripple.style.top = (y - 50) + 'px';
+                    ripple.style.background = 'radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%)';
+                    ripple.style.zIndex = '999';
+                    ripple.style.pointerEvents = 'none';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.opacity = '0';
+                    
+                    document.body.appendChild(ripple);
+                    
+                    let opacity = 0;
+                    const show = setInterval(() => {
+                        opacity += 0.1;
+                        ripple.style.opacity = opacity;
+                        if (opacity >= 0.5) {
+                            clearInterval(show);
                             setTimeout(() => {
-                                randomChar.classList.remove('bright');
+                                const hide = setInterval(() => {
+                                    opacity -= 0.1;
+                                    ripple.style.opacity = opacity;
+                                    if (opacity <= 0) {
+                                        clearInterval(hide);
+                                        ripple.remove();
+                                    }
+                                }, 50);
                             }, 300);
                         }
-                    }
+                    }, 50);
                 }
-            }, 1000);
+            });
+            
+            // تأثير الصوت عند النقر (اختياري)
+            document.addEventListener('click', function() {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = 800 + Math.random() * 400;
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                
+                oscillator.start();
+                oscillator.stop(audioContext.currentTime + 0.1);
+            });
         });
     </script>
 </body>
